@@ -5,7 +5,7 @@ function math(bot, config) {
   config = config[math.name] || {};
   const format = config.format || 'Computed: {{answer}}';
   return function run(message, args, flags) {
-    if (!args.length) return bot.reply('Invalid arguments provided');
+    if (!args.length) return message.reply('Invalid arguments provided');
     try {
       const answer = calc.eval(args.join(' '), flags || {});
       message.reply(pixie.render(format, {answer}));
